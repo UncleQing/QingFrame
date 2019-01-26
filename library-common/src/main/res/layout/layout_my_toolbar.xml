@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_bg"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_mtl_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="15dp"
+        android:padding="5dp"
+        android:src="@mipmap/icon_back" />
+
+    <TextView
+        android:id="@+id/tv_mtl_title"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        tools:text="标题" />
+
+    <TextView
+        android:id="@+id/tv_mtl_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_mtl_title"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="15dp"
+        android:padding="5dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        tools:text="提交" />
+
+    <ImageView
+        android:id="@+id/iv_mtl_menu"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="15dp"
+        android:padding="5dp"
+        android:src="@mipmap/icon_menu"
+        />
+
+    <ViewStub
+        android:id="@+id/vs_search"
+        android:layout_width="288dp"
+        android:layout_height="32dp"
+        android:layout="@layout/list_head_search"
+        android:layout_centerInParent="true"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/line" />
+</RelativeLayout>

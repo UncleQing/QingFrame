@@ -1,0 +1,106 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.mob.sdk'
+
+android {
+    compileSdkVersion var.compileSdkVersion
+    defaultConfig {
+        minSdkVersion var.minSdkVersion
+        targetSdkVersion var.targetSdkVersion
+        versionCode var.versionCode
+        versionName var.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+    }
+}
+
+//shareSDK配置信息
+MobSDK {
+    //http://www.mob.com/developer/login
+    appKey "29ca0750b6959"
+    appSecret "6621ce2204333a8d9227df4f99d68829"
+    gui false   //不使用默认UI OnekeyShare库
+
+    ShareSDK {
+        devInfo {
+            //TODO 待更新
+            SinaWeibo {
+                appKey "568898243"
+                appSecret "38a4f8204cc784f81f9f0daaf31e02e3"
+                callbackUri "http://www.sharesdk.cn"
+                shareByAppClient true  //是否使用客户端分享
+            }
+            //https://open.tencent.com/
+            QQ {
+                appId "101541573"
+                appKey "22c06e06a1c16ff262640dbeec439d72"
+                shareByAppClient true
+                bypassApproval false   //绕过审核标记
+            }
+            //TODO 待更新
+            Wechat {
+                appId "wx4868b35061f87885"
+                appSecret "64020361b8ec4c99936c0e3999a9f249"
+                shareByAppClient true
+                bypassApproval false
+            }
+            //TODO 待更新
+            WechatMoments {
+                appId "wx4868b35061f87885"
+                appSecret "64020361b8ec4c99936c0e3999a9f249"
+                shareByAppClient true
+                bypassApproval false
+            }
+            //TODO 待更新
+            WechatFavorite {
+                appId "wx4868b35061f87885"
+                appSecret "64020361b8ec4c99936c0e3999a9f249"
+                shareByAppClient true
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    api 'com.android.support:design:28.0.0'
+    //ARouter
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    api 'com.alibaba:arouter-api:1.3.1'
+    //retrofit
+    api 'com.squareup.retrofit2:retrofit:2.4.0'
+    api 'com.squareup.retrofit2:converter-gson:2.4.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    //okhttp
+    api 'com.squareup.okhttp3:okhttp:3.11.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    //rxjava and rxandroid
+    api 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    api 'io.reactivex.rxjava2:rxjava:2.2.0'
+    //gson
+    api 'com.google.code.gson:gson:2.8.2'
+    //分包工具
+    api 'com.android.support:multidex:1.0.3'
+    //butterknife
+    api 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //AndroidAutoSize
+    api 'me.jessyan:autosize:1.1.0'
+    //glide
+    api 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+    api 'com.github.bumptech.glide:glide:4.3.1'
+    //圆形图片
+    api 'de.hdodenhof:circleimageview:2.2.0'
+    //AgentWeb
+    api 'com.just.agentweb:agentweb:4.0.2'
+    //二维码生成
+    api 'cn.yipianfengye.android:zxing-library:2.2'
+
+}

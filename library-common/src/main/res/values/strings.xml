@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">library-common</string>
+
+    <!--permission 提示语-->
+    <string name="setting">设置</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="tip">提示</string>
+    <string name="permission_tip">当前应用权限被禁止访问，\n请点击"设置"-"权限"-打开所需权限。</string>
+    <string name="permission_save_sd_tip">存储权限被禁止访问，\n请点击"设置"-"权限"-打开所需权限。</string>
+    <string name="permission_call_phone_tip">拨打电话权限被禁止访问，\n请点击"设置"-"权限"-打开所需权限。</string>
+    <string name="permission_camera_tip">使用相机权限被禁止访问，\n请点击"设置"-"权限"-打开所需权限。</string>
+    <string name="permission_send_sms_tip">发送短信权限被禁止访问，\n请点击"设置"-"权限"-打开所需权限。</string>
+
+    <!--EditText 提示语-->
+    <string name="search_hint">请输入姓名</string>
+
+</resources>

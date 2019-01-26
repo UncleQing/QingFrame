@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_main_mtb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
+        android:text="MyToolBar展示"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btn_main_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
+        android:text="图片选择器展示"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btn_main_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
+        android:text="分享展示"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
+
+
+</LinearLayout>

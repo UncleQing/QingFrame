@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.zidian.qingframe.test.MyToolBarActivity">
+
+    <com.zidian.qingframe.library_common.widget.MyToolBar
+        android:id="@+id/mtb_6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mode="back_title_menu"
+        app:title="标题" />
+
+    <com.zidian.qingframe.library_common.widget.MyToolBar
+        android:id="@+id/mtb_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:mode="back" />
+
+    <com.zidian.qingframe.library_common.widget.MyToolBar
+        android:id="@+id/mtb_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:mode="title"
+        app:title="标题" />
+
+    <com.zidian.qingframe.library_common.widget.MyToolBar
+        android:id="@+id/mtb_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:mode="back_title"
+        app:title="标题" />
+
+    <com.zidian.qingframe.library_common.widget.MyToolBar
+        android:id="@+id/mtb_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:mode="back_title_right"
+        app:right_title="提交"
+        app:title="标题" />
+
+    <com.zidian.qingframe.library_common.widget.MyToolBar
+        android:id="@+id/mtb_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:mode="back_search"
+        app:search_hint="请输入电话" />
+
+
+
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zidian.qingframe.library_common.widget.EditText_Clear xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/et_search"
+    android:layout_width="match_parent"
+    android:layout_height="32dp"
+    android:layout_gravity="center"
+    android:background="@drawable/round_edittext"
+    android:drawableLeft="@mipmap/icon_search"
+    android:drawablePadding="8dp"
+    android:gravity="start|center_vertical"
+    android:hint="@string/search_hint"
+    android:imeOptions="actionSearch"
+    android:inputType="text"
+    android:singleLine="true"
+    android:textColorHint="@color/hint_color"
+    android:textCursorDrawable="@null"
+    android:textSize="12sp">
+
+
+</com.zidian.qingframe.library_common.widget.EditText_Clear>

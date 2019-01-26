@@ -1,0 +1,46 @@
+<resources>
+
+    <!--dialog-->
+    <style name="Base_AlertDialog" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="windowMinWidthMinor">90%</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@drawable/bg_dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+
+    <!--自定义toolbar-->
+    <declare-styleable name="MyToolBar">
+        <attr name="mode">
+            <enum name="back" value="1" />
+            <enum name="title" value="2" />
+            <enum name="back_title" value="3" />
+            <enum name="back_title_right" value="4" />
+            <enum name="back_search" value="5" />
+            <enum name="back_title_menu" value="6" />
+        </attr>
+        <attr name="style">
+            <enum name="normal" value="1" />
+            <enum name="app_style" value="2" />
+        </attr>
+        <attr name="title" format="string" />
+        <attr name="right_title" format="string" />
+        <attr name="search_hint" format="string" />
+    </declare-styleable>
+
+    <!--popwindow 下进动画-->
+    <style name="AnimationBottomFade">
+        <item name="android:windowEnterAnimation">@anim/enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/out_anim</item>
+    </style>
+
+    <!--popwindow 渐显动画-->
+    <style name="AnimationFade">
+        <item name="android:windowEnterAnimation">@anim/show_anim</item>
+        <item name="android:windowExitAnimation">@anim/close_anim</item>
+    </style>
+</resources>
