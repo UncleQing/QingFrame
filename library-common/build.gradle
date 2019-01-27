@@ -100,7 +100,4 @@ dependencies {
     api 'de.hdodenhof:circleimageview:2.2.0'
     //AgentWeb
     api 'com.just.agentweb:agentweb:4.0.2'
-    //二维码生成
-    api 'cn.yipianfengye.android:zxing-library:2.2'
-
 }

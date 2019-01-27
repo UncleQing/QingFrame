@@ -6,7 +6,6 @@ import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.DialogFragment;
@@ -18,7 +17,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
-import com.uuzuche.lib_zxing.activity.CodeUtils;
 import com.zidian.library_common.R;
 import com.zidian.qingframe.library_common.utils.UIUtils;
 
@@ -46,7 +44,7 @@ public class DialogFragmentHelper {
 
     /**
      * ------------------------------------------------------
-     * 自定义dialog
+     * 根据自己项目定义dialog
      * ------------------------------------------------------
      */
 
