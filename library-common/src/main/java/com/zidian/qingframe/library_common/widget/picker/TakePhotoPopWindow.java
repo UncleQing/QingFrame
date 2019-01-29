@@ -17,8 +17,8 @@ import com.zidian.qingframe.library_common.utils.UIUtils;
 
 
 public class TakePhotoPopWindow extends PopupWindow implements OnClickListener {
-    private View mView;
-    public Button btnSaveProject, btnAbandonProject, btnCancelProject;
+    private View mView, v_bg;
+    private Button btnSaveProject, btnAbandonProject, btnCancelProject;
     Context mcontext;
 
     private PickPhotoListener mListener;
@@ -30,12 +30,14 @@ public class TakePhotoPopWindow extends PopupWindow implements OnClickListener {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mView = inflater.inflate(R.layout.populwindow_takephoto, null);
 
+        v_bg = mView.findViewById(R.id.popupwindow_view_bg);
         btnSaveProject = mView.findViewById(R.id.popupwindow_Button_saveProject);
         btnAbandonProject = mView.findViewById(R.id.popupwindow_Button_abandonProject);
         btnCancelProject = mView.findViewById(R.id.popupwindow_cancelButton);
 
 
         // 设置按钮监听
+        v_bg.setOnClickListener(this);
         btnCancelProject.setOnClickListener(this);
         btnSaveProject.setOnClickListener(this);
         btnAbandonProject.setOnClickListener(this);
@@ -95,8 +97,6 @@ public class TakePhotoPopWindow extends PopupWindow implements OnClickListener {
                 mListener.takePhoto();
             } else if (id == R.id.popupwindow_Button_abandonProject) {
                 mListener.pickPhoto();
-            } else if (id == R.id.popupwindow_cancelButton) {
-
             }
         }
         dismiss();
