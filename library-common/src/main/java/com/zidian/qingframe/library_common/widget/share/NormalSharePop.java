@@ -112,7 +112,8 @@ public class NormalSharePop extends PopupWindow implements OnClickListener{
         int i = v.getId();
         if (i == R.id.normalshare_wechat) {
             //微信通讯录
-            if (!CommonUtil.isWeixinAvilible(AppUtils.getApp())) {
+            plat = ShareSDK.getPlatform(Wechat.NAME);
+            if (!plat.isClientValid() && !CommonUtil.isWeixinAvilible(AppUtils.getApp())) {
                 ToastUtils.showToast(AppUtils.getApp(), "检查到您手机没有安装微信，请安装后使用该功能");
                 return;
             }
@@ -123,12 +124,12 @@ public class NormalSharePop extends PopupWindow implements OnClickListener{
             wechatSP.setUrl(url);
             wechatSP.setImagePath(imagePath);
             wechatSP.setImageUrl(imageUrl);
-            plat = ShareSDK.getPlatform(Wechat.NAME);
             plat.share(wechatSP);
 
         } else if (i == R.id.normalshare_wechat_moments) {
             //微信朋友圈
-            if (!CommonUtil.isWeixinAvilible(AppUtils.getApp())) {
+            plat = ShareSDK.getPlatform(WechatMoments.NAME);
+            if (!plat.isClientValid() && !CommonUtil.isWeixinAvilible(AppUtils.getApp())) {
                 ToastUtils.showToast(AppUtils.getApp(), "检查到您手机没有安装微信，请安装后使用该功能");
                 return;
             }
@@ -139,12 +140,12 @@ public class NormalSharePop extends PopupWindow implements OnClickListener{
             wechatSP2.setUrl(url);
             wechatSP2.setImagePath(imagePath);
             wechatSP2.setImageUrl(imageUrl);
-            plat = ShareSDK.getPlatform(WechatMoments.NAME);
             plat.share(wechatSP2);
 
         } else if (i == R.id.normalshare_wechat_favorite) {
             //微信收藏
-            if (!CommonUtil.isWeixinAvilible(AppUtils.getApp())) {
+            plat = ShareSDK.getPlatform(WechatFavorite.NAME);
+            if (!plat.isClientValid() && !CommonUtil.isWeixinAvilible(AppUtils.getApp())) {
                 ToastUtils.showToast(AppUtils.getApp(), "检查到您手机没有安装微信，请安装后使用该功能");
                 return;
             }
@@ -155,12 +156,12 @@ public class NormalSharePop extends PopupWindow implements OnClickListener{
             wechatSP3.setUrl(url);
             wechatSP3.setImagePath(imagePath);
             wechatSP3.setImageUrl(imageUrl);
-            plat = ShareSDK.getPlatform(WechatFavorite.NAME);
             plat.share(wechatSP3);
 
         } else if (i == R.id.normalshare_qq) {
             //qq通讯录
-            if (!CommonUtil.isQQClientAvailable(AppUtils.getApp())) {
+            plat = ShareSDK.getPlatform(QQ.NAME);
+            if (!plat.isClientValid() && !CommonUtil.isQQClientAvailable(AppUtils.getApp())) {
                 ToastUtils.showToast(AppUtils.getApp(), "检查到您手机没有安装QQ，请安装后使用该功能");
                 return;
             }
@@ -174,7 +175,6 @@ public class NormalSharePop extends PopupWindow implements OnClickListener{
             qqSP.setSiteUrl(siteUrl);
             qqSP.setImagePath(imagePath);
             qqSP.setImageUrl(imageUrl);
-            plat = ShareSDK.getPlatform(QQ.NAME);
             plat.share(qqSP);
 
         } else if (i == R.id.normalshare_sinaweibo) {
