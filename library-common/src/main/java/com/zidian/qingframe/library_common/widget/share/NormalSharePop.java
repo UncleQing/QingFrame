@@ -174,6 +174,7 @@ public class NormalSharePop extends PopupWindow implements OnClickListener{
             qqSP.setSite(site);
             qqSP.setSiteUrl(siteUrl);
             qqSP.setImagePath(imagePath);
+            //QQ图片的url不能是ip地址+接口的形式，否则分享出显示不出
             qqSP.setImageUrl(imageUrl);
             plat.share(qqSP);
 
