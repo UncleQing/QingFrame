@@ -13,9 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.zidian.qingframe.library_common.utils.glide.GlideApp;
+import com.zidian.qingframe.library_common.utils.ImageLoaderUtils;
 
 public class BaseDialog extends Dialog {
     private int height, width;
@@ -109,9 +107,7 @@ public class BaseDialog extends Dialog {
             View view1 = view.findViewById(viewRes);
             if (view1 instanceof ImageView) {
                 ImageView iv = (ImageView) view1;
-                GlideApp.with(context).load(imgUrl)
-                        .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                        .into(iv);
+                ImageLoaderUtils.loadImage(context, iv, imgUrl);
             } else {
                 return this;
             }

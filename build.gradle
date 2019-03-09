@@ -15,7 +15,6 @@ buildscript {
         jcenter()
     }
     dependencies {
-        //和distributionUrl设置gradle版本相关联，不可轻易更改
         classpath 'com.android.tools.build:gradle:3.3.0'
         //shareSDK分享
         classpath "com.mob.sdk:MobSDK:2018.0319.1724"

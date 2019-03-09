@@ -16,9 +16,8 @@ public class CacheCleanUtils {
      *
      * @param context
      * @return
-     * @throws Exception
      */
-    public static String getTotalCacheSize(Context context) throws Exception {
+    public static String getTotalCacheSize(Context context) {
         long cacheSize = getFolderSize(context.getCacheDir());
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             cacheSize += getFolderSize(context.getExternalCacheDir());
