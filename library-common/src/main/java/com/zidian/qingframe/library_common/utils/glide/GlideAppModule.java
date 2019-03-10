@@ -22,7 +22,7 @@ public class GlideAppModule extends AppGlideModule {
     @SuppressLint({"CheckResult"})
     public void applyOptions(Context context, GlideBuilder builder) {
         RequestOptions defaultOptions = new RequestOptions();
-        ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         if (Build.VERSION.SDK_INT >= 19) {
             assert activityManager != null;
 

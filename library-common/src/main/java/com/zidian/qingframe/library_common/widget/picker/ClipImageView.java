@@ -339,13 +339,8 @@ public class ClipImageView extends AppCompatImageView implements View.OnTouchLis
         }
     }
 
-    @TargetApi(VERSION_CODES.JELLY_BEAN)
     private void postOnAnimation(View view, Runnable runnable) {
-        if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) {
-            view.postOnAnimation(runnable);
-        } else {
-            view.postDelayed(runnable, 16);
-        }
+        view.postOnAnimation(runnable);
     }
 
     /**

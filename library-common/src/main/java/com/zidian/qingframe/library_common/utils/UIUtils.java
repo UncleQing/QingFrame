@@ -89,18 +89,12 @@ public class UIUtils {
      * @return
      */
     public static boolean isNavigationBarShow(Activity mActivity) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            Display display = mActivity.getWindowManager().getDefaultDisplay();
-            Point size = new Point();
-            Point realSize = new Point();
-            display.getSize(size);
-            display.getRealSize(realSize);
-            return realSize.y != size.y;
-        } else {
-            boolean menu = ViewConfiguration.get(mActivity).hasPermanentMenuKey();
-            boolean back = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
-            return !(menu || back);
-        }
+        Display display = mActivity.getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        Point realSize = new Point();
+        display.getSize(size);
+        display.getRealSize(realSize);
+        return realSize.y != size.y;
     }
 
     /**

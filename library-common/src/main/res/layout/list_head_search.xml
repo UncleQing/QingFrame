@@ -5,7 +5,7 @@
     android:layout_height="32dp"
     android:layout_gravity="center"
     android:background="@drawable/round_edittext"
-    android:drawableLeft="@mipmap/icon_search"
+    android:drawableStart="@mipmap/icon_search"
     android:drawablePadding="8dp"
     android:gravity="start|center_vertical"
     android:hint="@string/search_hint"
