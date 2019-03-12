@@ -4,9 +4,10 @@
     package="com.zidian.qingframe">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
         android:name=".MyApp"
@@ -17,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:name">
-
+        <activity android:name=".test.UpdateActivity"></activity>
         <!-- 根据设计图基准设置宽高，当前为750*1334，dp为375*667 -->
         <meta-data
             android:name="design_width_in_dp"
@@ -43,8 +44,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".test.MyToolBarActivity"></activity>
-        <activity android:name=".library_common.widget.picker.CutPictureActivity"></activity>
+        <activity android:name=".test.MyToolBarActivity" />
+        <activity android:name=".library_common.widget.picker.CutPictureActivity" />
     </application>
 
 </manifest>

@@ -49,6 +49,39 @@ public class DialogFragmentHelper {
      */
 
     /**
+     * 版本更新窗口
+     */
+    private static final String UPDATE_TAG = TAG_HEAD + ":update";
+
+    public static void showUpdateDialog(FragmentManager fragmentManager, final String message
+            , final boolean cancelable, final View.OnClickListener positiveListener) {
+        sBaseDialogFragment = BaseDialogFragment.newInstance(new BaseDialogFragment.OnCallDialog() {
+            @Override
+            public Dialog getDialog(Context context) {
+                BaseDialog.Builder builder = new BaseDialog.Builder(context);
+                int width = UIUtils.dp2px(context, 250);
+                int height = UIUtils.dp2px(context, 350);
+
+                builder = builder.layout(R.layout.layout_dialog_app_update);
+                View rootView = builder.getView();
+                builder.style(BASE_THEME).height(height).width(width)
+                        .setText(R.id.tv_update_msg, message)
+                        .addViewOnclick(R.id.btn_update, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                positiveListener.onClick(v);
+                                sBaseDialogFragment.dismissAllowingStateLoss();
+                            }
+                        });
+                BaseDialog dialog = builder.build();
+                return dialog;
+            }
+        }, cancelable);
+        sBaseDialogFragment.show(fragmentManager, UPDATE_TAG);
+
+    }
+
+    /**
      * 信息+取消btn+确定btn
      */
     private static final String CONFIRM_TAG = TAG_HEAD + ":confirm";

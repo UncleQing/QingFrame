@@ -5,14 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v4.content.FileProvider;
-import android.util.Base64;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -31,7 +27,6 @@ public class CommonUtil {
         lastClickTime = currentTime;
         return isFastClick;
     }
-
 
 
     //是否安装QQ
@@ -78,7 +73,8 @@ public class CommonUtil {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.N) {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            Uri apkUri = FileProvider.getUriForFile(context, "com.credithc.hengyiying.fileprovider", apkPath);
+            //这块不要写错了，一定要是你自己Manifest注册的fileprovider
+            Uri apkUri = FileProvider.getUriForFile(context, "com.zidian.qingframe.fileprovider", apkPath);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
         } else {

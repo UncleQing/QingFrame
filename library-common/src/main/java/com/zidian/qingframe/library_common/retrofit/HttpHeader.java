@@ -22,7 +22,7 @@ public class HttpHeader {
             headers.put("x-v", AppConfig.INTERFACE_VERSION);
             headers.put("x-appid", AppConfig.APPID);
             headers.put("x-ver", AppConfig.PROTOCOL_VERSION);
-            headers.put("x-client-info", String.format("%s:%s:%s:%s",
+            headers.put("x-client-info", String.format("%s:%s:%s",
                     DeviceUtils.getDeviceModel(),
                     DeviceUtils.getSystemCurrentVersion(),
                     DeviceUtils.getDeviceId(AppUtils.getApp())

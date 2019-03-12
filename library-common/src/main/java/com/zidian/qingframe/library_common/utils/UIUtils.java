@@ -2,20 +2,23 @@ package com.zidian.qingframe.library_common.utils;
 
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.os.Build;
 import android.view.Display;
-import android.view.KeyCharacterMap;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import com.zidian.library_common.R;
 
 import java.lang.reflect.Method;
 
@@ -191,5 +194,53 @@ public class UIUtils {
     public static int px2sp(Context context, float pxValue) {
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / fontScale + 0.5f);
+    }
+
+    /**
+     * 下载apk通知栏
+     * @param notificationManager
+     * @return
+     */
+    public static final int notifyID = 99;
+    public static final String CHANNEL_ID = "111";
+
+    public static Notification.Builder creatNotification(NotificationManager notificationManager) {
+        if (notificationManager == null) {
+            notificationManager = (NotificationManager) AppUtils.getApp().getSystemService(Context.NOTIFICATION_SERVICE);
+        }
+        Notification.Builder builder = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            //8.0新增通知渠道
+            CharSequence name = "QingFrame";
+            int importance = NotificationManager.IMPORTANCE_LOW;   //优先级
+            NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, name, importance);
+            mChannel.enableLights(false);            //闪灯开关
+            mChannel.enableVibration(false);         //振动开关
+            mChannel.setShowBadge(false);         //通知圆点开关
+            notificationManager.createNotificationChannel(mChannel);
+            builder = new Notification.Builder(AppUtils.getApp(), CHANNEL_ID);
+        } else {
+            builder = new Notification.Builder(AppUtils.getApp());
+        }
+        builder.setSmallIcon(R.drawable.ic_app_ntfc)
+                .setLargeIcon(BitmapFactory.decodeResource(AppUtils.getApp().getResources(), R.mipmap.share_qq))
+                .setContentText("0%")
+                .setContentTitle("青结构")
+                .setProgress(100, 0, false);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            //小图标背景
+            builder.setColor(AppUtils.getApp().getResources().getColor(R.color.colorPrimary));
+        }
+
+        notificationManager.notify(notifyID, builder.build());
+        return builder;
+    }
+
+    public static void cancleNotification(NotificationManager notificationManager) {
+        if (notificationManager == null) {
+            notificationManager = (NotificationManager) AppUtils.getApp().getSystemService(Context.NOTIFICATION_SERVICE);
+        }
+        notificationManager.cancel(notifyID);
     }
 }

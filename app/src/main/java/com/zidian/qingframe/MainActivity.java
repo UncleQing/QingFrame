@@ -19,6 +19,7 @@ import com.zidian.qingframe.library_common.widget.picker.TakePhotoPopWindow;
 import com.zidian.qingframe.library_common.widget.share.NormalSharePop;
 import com.zidian.qingframe.library_common.widget.share.ShareBean;
 import com.zidian.qingframe.test.MyToolBarActivity;
+import com.zidian.qingframe.test.UpdateActivity;
 
 import java.io.File;
 
@@ -33,6 +34,8 @@ public class MainActivity extends BaseActivity {
     Button mBtnMainPicker;
     @BindView(R.id.btn_main_share)
     Button mBtnMainShare;
+    @BindView(R.id.btn_main_update)
+    Button mBtnMainUpdate;
 
     @Override
     protected int getLayoutId() {
@@ -45,7 +48,7 @@ public class MainActivity extends BaseActivity {
         PhotoUtils.getInstance().with(this).setOnPhotoListener(new PhotoUtils.OnPhotoListener() {
             @Override
             public void onPhoto(String imgPath) {
-                ToastUtils.showToast(MainActivity.this, "图片path:\n" +imgPath);
+                ToastUtils.showToast(MainActivity.this, "图片path:\n" + imgPath);
                 //根据需求跳转裁剪界面
                 Intent intent = new Intent(MainActivity.this, CutPictureActivity.class);
                 intent.putExtra("picPath", imgPath);
@@ -55,12 +58,13 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    @OnClick({R.id.btn_main_mtb, R.id.btn_main_picker, R.id.btn_main_share})
+    @OnClick({R.id.btn_main_mtb, R.id.btn_main_picker, R.id.btn_main_share, R.id.btn_main_update})
     public void onClick(View view) {
+        Intent intent = null;
         switch (view.getId()) {
             case R.id.btn_main_mtb:
                 //mytoolbar展示
-                Intent intent = new Intent(this, MyToolBarActivity.class);
+                intent = new Intent(this, MyToolBarActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_main_picker:
@@ -109,10 +113,32 @@ public class MainActivity extends BaseActivity {
                                 setUrl("http://www.baidu.com"). //分享链接
                                 setTitleUrl("http://www.baidu.com"). //同上
                                 //缩略图url,qq分享链接不能是ip+端口形式，否则不能显示
-                                setImageUrl("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2412307550,2368771409&fm=26&gp=0.jpg"));
+                                        setImageUrl("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2412307550,2368771409&fm=26&gp=0.jpg"));
                 mSharePop.showAtLocation(View.inflate(MainActivity.this, getLayoutId(), null),
                         Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
 
+                break;
+            case R.id.btn_main_update:
+                //下载apk展示
+                //相关权限
+                new PermissionWrapper.Builder().with(this).requePermissionString(Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE)
+                        .requestCode(PermissionRequestCode.WRITE_EXTERNAL_STORAGE)
+                        .setErrorMsg(R.string.permission_save_sd_tip)
+                        .onResultListener(new IRequestResult() {
+                            @Override
+                            public void onRequestResultSuccess() {
+                                Intent intent1 = new Intent(MainActivity.this, UpdateActivity.class);
+                                startActivity(intent1);
+                            }
+
+                            @Override
+                            public void onRequestResultFailed() {
+                                ToastUtils.showToast(getApplicationContext(), "权限请求失败");
+                            }
+                        })
+                        .create()
+                        .requestPermission();
                 break;
         }
     }
@@ -120,10 +146,10 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (resultCode == RESULT_OK) {
-            if (requestCode == PhotoUtils.CLIP_PHOTO){
+            if (requestCode == PhotoUtils.CLIP_PHOTO) {
                 //裁剪后的回跳
                 ToastUtils.showToast(getApplicationContext(), "裁剪后path:" + data.getStringExtra("user_result"));
-            }else {
+            } else {
                 PhotoUtils.getInstance().with(this).onActivityResult(requestCode, resultCode, data);
             }
         }

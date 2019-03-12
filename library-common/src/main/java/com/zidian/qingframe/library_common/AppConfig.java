@@ -31,4 +31,9 @@ public class AppConfig {
      * 从拦截器当中发送下载进度广播给service
      */
     public static final String DOWNLOAD_PROGRESS = "com.credithc.hengyiying.app.upgrade.downloadprogress";
+
+    /**
+     * 下载中标识
+     */
+    public static boolean isDownLoad;
 }

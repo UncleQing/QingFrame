@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
+import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -67,7 +68,16 @@ public class RetrofitApiService {
      * 测试模块-测试接口
      * @return
      */
-    public Observable<HttpResult> testPing() {
+    Observable<HttpResult> testPing() {
         return mApiService.testPing();
+    }
+
+    /**
+     * 个人中心-下载apk
+     *
+     * @return
+     */
+    public Observable<ResponseBody> downloadApk(String url) {
+        return mApiService.download(url, "upgrade");
     }
 }
